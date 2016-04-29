@@ -14,12 +14,14 @@ RUN apt-get update && apt-get install -y \
 && busybox --install \
 && useradd -ms /bin/sh factom
 
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 USER factom
 WORKDIR /home/factom
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN mkdir /home/factom/.factom
 
-VOLUME /home/factom/.factom/
+VOLUME /home/factom/.factom
 
 EXPOSE 8088 8089 8090
 CMD ["/usr/bin/supervisord"]
