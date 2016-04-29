@@ -2,17 +2,14 @@ FROM debian:jessie
 
 MAINTAINER Tyrone<tyrone.dev@gmail.com>
 
-ADD http://factom.org/downloads/factom.deb ./
-
 # Install Supervisor
 # Download and install Factom
-RUN apt-get update && apt-get -qy install \
-    supervisor busybox \
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/*  \
+RUN apt-get update && apt-get -qy install supervisor curl \
+&& curl -sSL http://factom.org/downloads/factom.deb -o /factom.deb \
 && dpkg --force-architecture -i factom.deb \
-&& busybox --install \
-&& useradd -ms /bin/sh factom
+&& useradd -m factom \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
