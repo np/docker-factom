@@ -6,7 +6,7 @@ ADD http://factom.org/downloads/factom.deb ./
 
 # Install Supervisor
 # Download and install Factom
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get -qy install \
     supervisor busybox \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*  \
