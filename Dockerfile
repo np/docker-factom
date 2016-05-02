@@ -7,7 +7,7 @@ MAINTAINER Tyrone<tyrone.dev@gmail.com>
 RUN apt-get update && apt-get install -qy supervisor curl \
 && curl -sSL http://factom.org/downloads/factom.deb -o /factom.deb \
 && dpkg --force-architecture -i factom.deb \
-&& useradd -m factom \
+&& useradd -u 999 -m factom \
 && mkdir /home/factom/.factom \
 && chown factom /home/factom/.factom \
 && apt-get clean \
