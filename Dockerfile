@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -qy supervisor curl \
 && useradd -u 999 -m factom \
 && mkdir /home/factom/.factom \
 && chown factom /home/factom/.factom \
-&& chmod -R ogu+rxw /var/log/supervisor \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
@@ -18,8 +17,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 VOLUME /home/factom/.factom
 ENV HOME /home/factom
-
-USER factom
 
 EXPOSE 8088 8089 8090
 CMD ["/usr/bin/supervisord"]
