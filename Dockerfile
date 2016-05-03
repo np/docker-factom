@@ -18,6 +18,8 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 VOLUME /home/factom/.factom
 ENV HOME /home/factom
 
+USER factom
+
 EXPOSE 8088 8089 8090
 CMD ["/usr/bin/supervisord"]
 
