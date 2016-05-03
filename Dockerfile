@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -qy supervisor curl \
 && useradd -u 999 -m factom \
 && mkdir /home/factom/.factom \
 && chown factom /home/factom/.factom \
+&& chmod -R +rw /var/log/supervisor \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
