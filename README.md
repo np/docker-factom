@@ -48,3 +48,4 @@ According to [these recommendations](https://github.com/FactomProject/FactomDocs
 * `NodeMode` is set to `SERVER`
 * `ExchangeRate` is `00000100`
 * `fctwallet` listens on `0.0.0.0`
+* 
