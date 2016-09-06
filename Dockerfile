@@ -5,7 +5,7 @@ MAINTAINER Tyrone<tyrone.dev@gmail.com>
 # Install Supervisor
 # Download and install Factom
 RUN apt-get update && apt-get install -qy supervisor curl \
-&& curl -sSL http://factom.org/downloads/factom.deb -o /factom.deb \
+&& curl -sSL https://github.com/FactomProject/distribution/releases/download/v0.3.7.0/factom.deb -o /factom.deb \
 && dpkg --force-architecture -i factom.deb \
 && useradd -u 999 -m factom \
 && mkdir /home/factom/.factom \
